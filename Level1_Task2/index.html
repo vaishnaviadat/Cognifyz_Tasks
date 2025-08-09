@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form with Inline Styles and Validation</title>
+</head>
+<body style="font-family: Arial; background-color: #f4f4f4; padding: 20px;">
+
+<h2 style="color: #333; text-align: center;">Registration Form</h2>
+
+<form id="myForm" action="process_form.php" method="POST" style="background: #fff; padding: 20px; border-radius: 8px; width: 300px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);" onsubmit="return validateForm()">
+
+    <label style="display: block; margin-bottom: 5px;">Name:</label>
+    <input type="text" name="name" id="name" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc;">
+
+    <label style="display: block; margin-bottom: 5px;">Email:</label>
+    <input type="email" name="email" id="email" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc;">
+
+    <label style="display: block; margin-bottom: 5px;">Password:</label>
+    <input type="password" name="password" id="password" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc;">
+
+    <button type="submit" style="background: green; color: white; padding: 10px; border: none; width: 100%; cursor: pointer;">Submit</button>
+</form>
+
+<script>
+function validateForm() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    if (name === "" || email === "" || password === "") {
+        alert("All fields are required!");
+        return false;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+    return true; // submit form
+}
+</script>
+
+</body>
+</html>
